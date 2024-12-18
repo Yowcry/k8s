@@ -1,18 +1,11 @@
-# Use an official Node.js runtime as a parent image
-FROM node:16
+# Use the official Alpine Linux image as the base
+FROM alpine:latest
 
-# Set the working directory in the container
-WORKDIR /app
+# Install dependencies (optional, you can remove if not needed)
+RUN apk --no-cache add bash curl
 
-# Copy package.json and install dependencies
-COPY package.json ./
-RUN npm install
+# Add files to the container (if you need to copy files)
+# COPY . .
 
-# Copy the rest of the app's source code into the container
-COPY . .
-
-# Expose port 3000
-EXPOSE 3000
-
-# Run the application
-CMD ["npm", "start"]
+# Set the command to run when the container starts
+CMD ["echo", "Hello from Docker!"]

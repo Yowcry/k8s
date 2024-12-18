@@ -30,11 +30,6 @@ jobs:
         docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:latest .
         docker images
 
-    - name: Tag Docker Image
-      run: |
-        echo "Tagging the Docker image..."
-        docker tag ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:latest
-
     - name: Push Docker Image to ECR
       run: |
         echo "Pushing the Docker image to AWS ECR..."
