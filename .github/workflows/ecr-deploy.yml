@@ -27,13 +27,13 @@ jobs:
     - name: Build Docker Image
       run: |
         echo "Building the Docker image..."
-        docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:latest .
+        docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:${{ github.sha }} .
         docker images
 
     - name: Push Docker Image to ECR
       run: |
         echo "Pushing the Docker image to AWS ECR..."
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:latest
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/k8s:${{ github.sha }}
 
     - name: Verify Image in ECR
       run: |
