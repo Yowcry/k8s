@@ -1,4 +1,4 @@
-# 📦 K8s Docker ECR Project
+# 📦 K8s Docker ECR
 
 This repo holds a Dockerized app that automatically gets built and pushed to AWS ECR using GitHub Actions.
 It's a simple example of a CI/CD pipeline and how to manage Docker images for AWS ECR.
